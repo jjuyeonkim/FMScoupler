@@ -384,6 +384,13 @@ program coupler_main
   coupler_clocks%initialization = fms_mpp_clock_id( 'Initialization' )
   call fms_mpp_clock_begin(coupler_clocks%initialization)
 
+  !$ser init directory='test_data/' prefix='Generator' unique_id=.true.
+  !$ser mode write
+  !$ser on
+  !$ser savepoint CouplerMain-Sanity
+  !$ser data full_coupler=0
+  !$ser off
+
   call fms_init
   call fmsconstants_init
   call fms_affinity_init
