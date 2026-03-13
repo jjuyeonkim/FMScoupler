@@ -159,6 +159,8 @@ implicit none
     !ser verbatim print *, 'INFO: starting timestep',nc,' time is',Time_atmos
     !$ser verbatim if (nc == save_timestep) then
       !$ser on
+      !$ser savepoint CouplerMain-Sanity
+      !$ser data nc_val=nc
     !$ser verbatim else
       !$ser off
     !$ser verbatim endif
