@@ -149,6 +149,13 @@ implicit none
    termClock = fms_mpp_clock_id( 'Termination' )
    call fms_mpp_clock_begin (initClock)
 
+  !$ser init directory='test_data/' prefix='Generator' unique_id=.true.
+  !$ser mode write
+  !$ser on
+  !$ser savepoint CouplerMain-Sanity
+  !$ser data simple_coupler=1
+  !$ser off
+
    call fms_init
    call fmsconstants_init
    call fms_affinity_init
