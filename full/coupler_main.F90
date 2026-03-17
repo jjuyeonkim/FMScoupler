@@ -388,7 +388,7 @@ program coupler_main
   !$ser mode write
   !$ser on
   !$ser savepoint CouplerMain-Sanity
-  !$ser data full_coupler=0
+  !$ser data full_coupler=Time_step_atmos
   !$ser off
 
   call fms_init
