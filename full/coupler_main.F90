@@ -432,6 +432,13 @@ program coupler_main
   !> ocean/slow-ice integration loop
   coupled_timestep_loop : do nc = 1, num_cpld_calls
 
+    !$ser verbatim if (nc == save_timestep) then
+      !$ser on
+      !$ser verbatim print *, 'INFO: SERIALIZATION IS ON. Starting timestep ', nc
+    !$ser verbatim else
+      !$ser off
+      !$ser verbatim print *, 'INFO: SERIALIZATION IS OFF. Starting timestep ', nc
+    !$ser verbatim endif
     if (do_chksum) then
       call coupler_chksum_obj%get_coupler_chksums('top_of_coupled_loop+', nc)
       call coupler_chksum_obj%get_atmos_ice_land_ocean_chksums('MAIN_LOOP-', nc)
